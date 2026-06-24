@@ -9,29 +9,26 @@
       content="An operating system to facilitate an AI Build Up Day."
     />
     <link rel="stylesheet" href="assets/styles.css" />
+    
   </head>
   <body>
     <div class="noise"></div>
     <nav class="nav">
-  <a class="brand" href="index.html">
-    <img
-      class="brand-logo"
-      src="assets/logo-hotstuff.png"
-      alt="Hotstuff"
-    />
-  </a>
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="assets/logo-hotstuff.png" alt="Hotstuff" />
+      </a>
 
-  <div class="nav-links">
-    <a href="#incluye">What's included</a>
-    <a href="#fit">Who it's for</a>
-    <a href="#precio">Pricing</a>
-    <a href="#faq">FAQ</a>
-  </div>
+      <div class="nav-links">
+        <a href="#incluye">What's included</a>
+        <a href="#fit">Who it's for</a>
+        <a href="#precio">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
 
-  <a class="nav-cta" href="#form">Buy the system →</a>
+      <a class="nav-cta" href="#form">Buy the system →</a>
 
-  <button class="mobile-toggle">☰</button>
-</nav>
+      <button class="mobile-toggle">☰</button>
+    </nav>
     <main>
       <section class="hero">
         <div class="grid-bg"></div>
@@ -134,47 +131,133 @@
             </div>
           </div>
         </div>
-      </section>
       <section class="section" id="incluye">
-        <div class="container grid-2">
-          <div class="reveal">
-            <span class="eyebrow">What's included</span>
-            <h2 style="margin-top: 20px">
-              8 documents to prepare, facilitate, and follow up on the Build Up
-              Day.
-            </h2>
-            <p class="lead" style="margin-top: 18px">
-              Diagnosis, tool selection, an 8-hour framework, scripts, a
-              calculator, and a post-event guide. Less improvisation; more
-              signal, less keynote smoke.
-            </p>
-          </div>
-          <div class="mockup-stack reveal">
-            <div class="doc-card">
-              <small>Document 01</small>
-              <h3>Why it works</h3>
-              <div class="doc-lines">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-            <div class="doc-card">
-              <small>Document 05</small>
-              <h3>8-hour framework</h3>
-              <div class="doc-lines">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-            <div class="doc-card">
-              <small>Document 08</small>
-              <h3>Real adoption</h3>
-              <div class="doc-lines">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section">
+  <style>
+    #incluye .single-doc-carousel {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    #incluye .single-doc-track {
+      position: relative;
+      width: 420px;
+      height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    #incluye .single-doc {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.45));
+    }
+
+    #incluye .single-doc.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    #incluye .doc-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    #incluye .doc-prev {
+      left: 20px;
+      
+    }
+
+    #incluye .doc-next {
+      right: 20px;
+    }
+
+    @media (max-width: 900px) {
+      #incluye .single-doc-carousel {
+        min-height: 520px;
+      }
+
+      #incluye .single-doc-track {
+        width: 330px;
+        height: 460px;
+      }
+
+      #incluye .doc-prev {
+        left: 0;
+      }
+
+      #incluye .doc-next {
+        right: 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      #incluye .single-doc-carousel {
+        min-height: 470px;
+      }
+
+      #incluye .single-doc-track {
+        width: 290px;
+        height: 410px;
+      }
+    }
+  </style>
+
+  <div class="container grid-2">
+    <div class="reveal">
+      <span class="eyebrow">What's included</span>
+
+      <h2 style="margin-top: 20px">
+        8 documents to prepare, facilitate, and follow up on the Build Up Day.
+      </h2>
+
+      <p class="lead" style="margin-top: 18px">
+        Diagnosis, tool selection, an 8-hour framework, scripts, a calculator,
+        and a post-event guide. Less improvisation; more signal, less keynote
+        smoke.
+      </p>
+    </div>
+
+    <div class="single-doc-carousel reveal">
+      <button class="doc-arrow doc-prev" type="button">‹</button>
+
+      <div class="single-doc-track">
+        <img src="assets/doc1.png" alt="Document 01" class="single-doc active" />
+        <img src="assets/doc2.png" alt="Document 02" class="single-doc" />
+        <img src="assets/doc3.png" alt="Document 03" class="single-doc" />
+        <img src="assets/doc4.png" alt="Document 04" class="single-doc" />
+        <img src="assets/doc5.png" alt="Document 05" class="single-doc" />
+        <img src="assets/doc6.png" alt="Document 06" class="single-doc" />
+        <img src="assets/doc7.png" alt="Document 07" class="single-doc" />
+        <img src="assets/doc8.png" alt="Document 08" class="single-doc" />
+      </div>
+
+      <button class="doc-arrow doc-next" type="button">›</button>
+    </div>
+  </div>
+</section>
         <div class="container">
           <div class="table card reveal">
             <div class="table-row"><b>#</b><b>Document</b><b>Function</b></div>
